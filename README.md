@@ -1,116 +1,151 @@
-# PICT Lost & Found System
+# 🦅 Lost & Found System
 
-## 🔄 Deployment Counter: **1**
+![Live Status](https://img.shields.io/badge/Status-Live-success?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
 
-_Tracking deployment attempts for backend-frontend connectivity_
+A seamless digital platform designed to bridge the gap between lost items and their rightful owners within an educational campus. Streamlines the process of reporting, tracking, and claiming lost belongings with an intuitive interface and automated verification.
 
 ---
 
-A digital platform to manage lost and found items efficiently within an educational institution.
+## 🚀 Live Demo
 
-## Overview
+**Frontend (Vercel):** [https://lost-and-found-delta-seven.vercel.app/](https://lost-and-found-delta-seven.vercel.app/)  
+**Backend (Render):** *Hosted API*
 
-The PICT Lost & Found System is a web application designed to streamline the process of cataloging, claiming, and returning lost items. The system bridges the gap between those who have lost items and those who have found them by providing a central repository with verification mechanisms.
+---
 
-## Current Deployment Status
+## 🛠️ Tech Stack
 
-- **Backend**: Simplified configuration ✅
-- **Cloudinary Integration**: Active ✅
-- **Environment Variables**: Removed for simplicity ✅
-- **Status**: Ready for clean backend deployment
+### Frontend
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 
-## Key Features
+### Backend
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
 
-- **Item Management**: Guards can add, edit, update, and track items in the system
-- **Claim System**: Students/staff can claim items with automated verification scheduling
-- **Expiry Logic**: Claims expire after 24 hours if not verified, with email notifications
-- **User Roles**: Different interfaces for guards (admin) and general users
-- **Interactive Help**: Guided tour and contextual help for new users
-- **Responsive UI**: Mobile-friendly interface using React and Tailwind CSS
-- **Cloud Storage**: Images stored on Cloudinary for cross-device compatibility
+### Deployment
+![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
+![Render](https://img.shields.io/badge/Render-%2346E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
 
-## Tech Stack
+---
 
-- **Frontend**: React.js, Tailwind CSS, React Router
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB
-- **Authentication**: JWT
-- **Email Notifications**: Nodemailer
+## ✨ Features
 
-## Getting Started
+-   🕵️ **Easy Reporting:** Quickly report lost or found items with image uploads.
+-   🔐 **Secure Claims:** Automated verification process for claiming items.
+-   🛡️ **Admin/Guard Panel:** Dedicated interface for security personnel to manage inventory.
+-   📧 **Smart Notifications:** Automated email alerts for claim status and expiry.
+-   📱 **Responsive Design:** Fully optimized for mobile, tablet, and desktop.
+-   ☁️ **Cloud Storage:** Integrated with Cloudinary for secure image hosting.
+
+---
+
+## 📂 Project Structure
+
+```bash
+📦 Lost-And-Found-System
+ ┣ 📂 client                 # Frontend Application (React)
+ ┃ ┣ 📂 public               # Static assets
+ ┃ ┣ 📂 src
+ ┃ ┃ ┣ 📂 components         # Reusable UI components
+ ┃ ┃ ┣ 📂 pages              # Main page views
+ ┃ ┃ ┣ 📂 context            # Global state management
+ ┃ ┃ ┗ 📜 App.js             # Main entry point
+ ┃ ┗ 📜 package.json         # Frontend dependencies
+ ┣ 📂 server                 # Backend API (Node/Express)
+ ┃ ┣ 📂 config               # Configuration files
+ ┃ ┣ 📂 controllers          # Request logic
+ ┃ ┣ 📂 models               # Mongoose database models
+ ┃ ┣ 📂 routes               # API endpoints
+ ┃ ┗ 📜 app.js               # Server entry point
+ ┗ 📜 README.md              # Project documentation
+```
+
+---
+
+## ⚡ Getting Started Locally
+
+Follow these steps to set up the project locally on your machine.
 
 ### Prerequisites
 
-- Node.js (v14.x or higher)
-- MongoDB
-- npm or yarn
+*   Node.js (v14+)
+*   MongoDB (Local or Atlas URL)
+*   npm or yarn
 
-### Installation
+### 1. Clone the Repository
 
-1. Clone the repository
+```bash
+git clone https://github.com/your-username/lost-and-found.git
+cd lost-and-found
+```
 
-   ```
-   git clone https://github.com/yourusername/pict-lost-and-found.git
-   ```
+### 2. Backend Setup
 
-2. Install dependencies
+```bash
+cd server
+npm install
+```
 
-   ```
-   # Install server dependencies
-   cd server
-   npm install
+Create a `.env` file in the `server` directory and add:
 
-   # Install client dependencies
-   cd ../client
-   npm install
-   ```
+```env
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_EMAIL=your_email@gmail.com
+SMTP_PASSWORD=your_app_password
+FROM_EMAIL=noreply@lostandfound.com
+```
 
-3. Configure environment variables
+Start the Server:
 
-   - Create a `.env` file in the server directory with:
+```bash
+npm start
+# Server runs on http://localhost:5000
+```
 
-   ```
-   MONGO_URI=your_mongodb_connection_string
-   JWT_SECRET=your_jwt_secret_key
-   SMTP_HOST=your_smtp_host
-   SMTP_PORT=your_smtp_port
-   SMTP_EMAIL=your_email
-   SMTP_PASSWORD=your_email_password
-   FROM_EMAIL=noreply@yourdomain.com
-   FROM_NAME=PICT Lost & Found
-   ```
+### 3. Frontend Setup
 
-4. Start the application
+Open a new terminal configuration:
 
-   ```
-   # Start the server
-   cd server
-   npm start
+```bash
+cd client
+npm install
+```
 
-   # In a new terminal, start the client
-   cd client
-   npm start
-   ```
+Create a `.env.local` file in the `client` directory:
 
-5. Access the application at http://localhost:3000
+```env
+REACT_APP_API_URL=http://localhost:5000
+```
 
-## Usage
+Start the React App:
 
-### For Guards (Admin)
+```bash
+npm start
+# App runs on http://localhost:3000
+```
 
-- Login with guard credentials
-- Add new lost items to the system
-- Verify item claims and mark items as delivered
-- View expiry claims and manage items
+---
 
-### For Students/Staff
+## 🤝 Contribution
 
-- Browse available lost items
-- Submit claims for found items
-- Receive email notifications about claim status
-- Attend verification sessions to retrieve items
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-## Acknowledgements
+1.  Fork the Project
+2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the Branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
 
-- Pune Institute of Computer Technology (PICT)
-- All contributors to the project
+---
+
+<p align="center">
+  Made with ❤️ for the Community
+</p>
