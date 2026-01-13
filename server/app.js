@@ -11,9 +11,7 @@ dotenv.config();
 
 // Connect to MongoDB - using direct connection string
 mongoose
-  .connect(
-    "mongodb+srv://rishi:RG8172004@cluster0.u65kq.mongodb.net/pict-lostfound"
-  )
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
@@ -93,8 +91,7 @@ try {
         middleware.handle.stack.forEach((handler) => {
           if (handler.route) {
             console.log(
-              `${Object.keys(handler.route.methods)[0]} /api${
-                handler.route.path
+              `${Object.keys(handler.route.methods)[0]} /api${handler.route.path
               }`
             );
           }
@@ -128,4 +125,4 @@ const server = app.listen(PORT, () => {
 //   throw error;
 // });
 
-// module.exports = app;
+module.exports = app;
